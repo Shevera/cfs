@@ -238,6 +238,10 @@ class CFS_Main {
 		delete_option( 'cfs_from_whom');
 		delete_option( 'cfs_subject');
 		delete_option( 'cfs_message');
+		
+		$table_name = $wpdb->prefix . 'posts';
+		$sql = "DELETE FROM $table_name WHERE `post_type` = 'cfs'";
+		$wpdb->query($sql);
 	}
 	/**
 	 * Load the plugin text domain for translation
